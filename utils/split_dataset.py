@@ -44,16 +44,34 @@ def split_dataset(cls_dir, dataset_txt_dir, cls_name, cls_code):
 
 
 if __name__ == '__main__':
-    # # 行人
-    # cls_dir = r'D:\my_phd\dataset\Stage3\D3_ECPDNight\pedestrian'
-    # dataset_txt_dir = r'D:\my_phd\dataset\Stage3\D3_ECPDNight\dataset_txt'
-    # cls_name = 'pedestrian'
-    # cls_code = '1'
+    base_dir = r'D:\my_phd\dataset\Stage3\D1_versionTrain'
+
+    dataset_txt_dir = os.path.join(base_dir, 'dataset_txt')
+    nonPed_dir = os.path.join(base_dir, 'nonPedestrian')
+    ped_dir = os.path.join(base_dir, 'pedestrian')
+
+    if not os.path.exists(dataset_txt_dir):
+        os.mkdir(dataset_txt_dir)
 
     # 非行人
-    cls_dir = r'D:\my_phd\dataset\Stage3\D3_ECPDNight\nonPedestrian'
-    dataset_txt_dir = r'D:\my_phd\dataset\Stage3\D3_ECPDNight\dataset_txt'
-    cls_name = 'nonPedestrian'
-    cls_code = '0'
+    split_dataset(cls_dir=nonPed_dir, dataset_txt_dir=dataset_txt_dir, cls_name='nonPedestrian', cls_code='0')
+    # 行人
+    split_dataset(cls_dir=ped_dir, dataset_txt_dir=dataset_txt_dir, cls_name='pedestrian', cls_code='1')
 
-    split_dataset(cls_dir=cls_dir, dataset_txt_dir=dataset_txt_dir, cls_name=cls_name, cls_code=cls_code)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
